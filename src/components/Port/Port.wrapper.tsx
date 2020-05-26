@@ -174,7 +174,11 @@ export class PortWrapper extends React.Component<IPortWrapperProps> {
   }
 
   private portsOfType (props: IPortWrapperProps) {
-    const { port: { type }, node: { ports } } = props
-    return Object.values(ports).reduce((count, port) => port.type === type ? count + 1 : count, 0)
+    const { port: { type, properties }, node: { ports } } = props
+    return Object
+        .values(ports)
+        .reduce((count, port) => (port.type === type && port.properties?.label === properties?.label)
+          ? count + 1
+          : count, 0)
   }
 }

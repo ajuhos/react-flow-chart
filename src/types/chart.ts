@@ -19,6 +19,7 @@ export interface IChart {
 export interface ISelectedOrHovered {
   type?: 'link' | 'node' | 'port'
   id?: string
+  doubleClick?: boolean
 }
 
 export interface INode {

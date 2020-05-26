@@ -181,10 +181,11 @@ export const onNodeClick: IStateCallback<IOnNodeClick> = ({ nodeId }) => (chart:
 }
 
 export const onNodeDoubleClick: IStateCallback<IOnNodeDoubleClick> = ({ nodeId }) => (chart: IChart) => {
-  if (chart.selected.id !== nodeId || chart.selected.type !== 'node') {
+  if (chart.selected.id !== nodeId || chart.selected.type !== 'node' || !chart.selected.doubleClick) {
     chart.selected = {
       type: 'node',
       id: nodeId,
+      doubleClick: true
     }
   }
   return chart

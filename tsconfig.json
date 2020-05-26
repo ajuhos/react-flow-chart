@@ -23,5 +23,5 @@
 		"types": ["react"]
 	},
 	"include": ["src/index.ts"],
-	"exclude": ["node_modules", "build", "scripts", "config"]
+	"exclude": ["node_modules", "build", "scripts", "config", "dist/src"]
 }
