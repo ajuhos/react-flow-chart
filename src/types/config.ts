@@ -19,6 +19,7 @@ export interface IZoomConfig {
   maxScale?: number
   pan?: {
     disabled?: boolean
+    wheelEnabled?: boolean
     touchPadEnabled?: boolean,
   }
   wheel?: {
