@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@ajuhos/react-zoom-pan-pinch@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@ajuhos/react-zoom-pan-pinch/-/react-zoom-pan-pinch-1.6.1.tgz#98c2289e97fcb12d2d3310eb40f8d6868dcb4c21"
+  integrity sha512-SDIqVG4315qfG09gTKSdehk/Z942ARUQcvB0xe7WHp2whdrB7mYHwDPmNU/XwwkgwmZsJCE7HDgkeTW+dPqaXA==
+
 "@babel/code-frame@7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.5.5.tgz#bc0782f6d69f7b7d49531219699b988f669a8f9d"
@@ -7957,11 +7962,6 @@ react-textarea-autosize@^7.1.0:
   dependencies:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
-
-react-zoom-pan-pinch@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/react-zoom-pan-pinch/-/react-zoom-pan-pinch-1.6.1.tgz#da16267c258ab37e8ebcdc7c252794a9633e91ec"
-  integrity sha512-J2eM0gZ04XiUWvmKZrOhSAB2zjyoK7kw2POIeN1X0yTTlmp6HPGV0zYfjnlkhgt8nQwpvXAbsF/oAnkuiwk1kA==
 
 react@^16.8.3, react@^16.8.4:
   version "16.13.1"
