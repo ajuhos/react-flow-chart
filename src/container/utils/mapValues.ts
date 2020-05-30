@@ -1,4 +1,4 @@
-export default function mapValues<
+export function mapValues<
   Obj extends object,
   Res extends { [key in Extract<keyof Obj, string>]: any }
 > (o: Obj, func: (value: Obj[keyof Obj]) => Res[Extract<keyof Obj, string>]) {

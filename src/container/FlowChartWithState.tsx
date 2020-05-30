@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FlowChart, IChart, IConfig, IFlowChartComponents } from '../'
 import * as actions from './actions'
-import mapValues from './utils/mapValues'
+import { mapValues } from './utils/mapValues'
 
 export interface IFlowChartWithStateProps {
   initialValue: IChart
