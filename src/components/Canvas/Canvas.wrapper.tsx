@@ -139,14 +139,30 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
                   if (data) {
                     const relativeClientX = e.clientX - offsetX;
                     const relativeClientY = e.clientY - offsetY;
-                    onCanvasDrop({
-                      config,
-                      data,
-                      position: {
-                        x: relativeClientX / scale - position.x / scale,
-                        y: relativeClientY / scale - position.y / scale
+                    if(Array.isArray(data)) {
+                      let i = 0;
+                      for(let d of data) {
+                        onCanvasDrop({
+                          config,
+                          data: d,
+                          position: {
+                            x: relativeClientX / scale - position.x / scale + i*(100/scale),
+                            y: relativeClientY / scale - position.y / scale
+                          }
+                        });
+                        i++
                       }
-                    })
+                    }
+                    else {
+                      onCanvasDrop({
+                        config,
+                        data,
+                        position: {
+                          x: relativeClientX / scale - position.x / scale,
+                          y: relativeClientY / scale - position.y / scale
+                        }
+                      })
+                    }
                   }
                 }}
                 onDragOver={(e) => e.preventDefault()}
