@@ -1,9 +1,8 @@
 {
   "name": "@ajuhos/react-flow-chart",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "A flexible, stateless flow chart library for react.",
   "main": "src/index.js",
-  "types": "src/index.d.ts",
   "repository": "git@github.com:MrBlenny/react-flow-chart.git",
   "author": "David Revay <daverevay@gmail.com>",
   "contributors": [
