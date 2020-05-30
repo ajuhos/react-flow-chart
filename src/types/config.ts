@@ -20,7 +20,6 @@ export interface IZoomConfig {
   pan?: {
     disabled?: boolean
     wheelEnabled?: boolean
-    touchPadEnabled?: boolean,
   }
   wheel?: {
     disabled?: boolean

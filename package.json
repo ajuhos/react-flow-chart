@@ -1,6 +1,6 @@
 {
   "name": "@ajuhos/react-flow-chart",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "A flexible, stateless flow chart library for react.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
