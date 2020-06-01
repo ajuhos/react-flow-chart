@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import Draggable, { DraggableData } from 'react-draggable'
 import ResizeObserver from 'react-resize-observer'
 import {
@@ -69,7 +68,7 @@ export const NodeWrapper = ({
   onLinkCancel,
 }: INodeWrapperProps) => {
   const { zoomScale } = React.useContext(CanvasContext);
-  const [size, setSize] = React.useState<ISize>({ width: 0, height: 0 })
+  const [, setSize] = React.useState<ISize>({ width: 0, height: 0 })
 
   const isDragging = React.useRef(false)
 
@@ -116,9 +115,9 @@ export const NodeWrapper = ({
 
   const compRef = React.useRef<HTMLElement>(null)
 
-  // TODO: probably should add an observer to track node component size changes
+/*  // TODO: probably should add an observer to track node component size changes
   React.useLayoutEffect(() => {
-    const el = ReactDOM.findDOMNode(compRef.current) as HTMLInputElement
+    const el = compRef.current as HTMLInputElement
     if (el) {
       if (
         (node.size && node.size.width) !== el.offsetWidth ||
@@ -129,7 +128,7 @@ export const NodeWrapper = ({
         onNodeSizeChange({ config, nodeId: node.id, size: newSize })
       }
     }
-  }, [node, compRef.current, size.width, size.height])
+  }, [node, compRef.current, size.width, size.height])*/
 
   const children = (
     <>
@@ -137,6 +136,7 @@ export const NodeWrapper = ({
         onResize={(rect) => {
           const newSize = { width: rect.width, height: rect.height }
           setSize(newSize)
+          onNodeSizeChange({ config, nodeId: node.id, size: newSize })
         }}
       />
       <NodeInner node={node} config={config} />
