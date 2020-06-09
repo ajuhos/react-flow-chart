@@ -68,7 +68,7 @@ export const NodeWrapper = ({
   onLinkCancel,
 }: INodeWrapperProps) => {
   const { zoomScale } = React.useContext(CanvasContext);
-  const [, setSize] = React.useState<ISize>({ width: 0, height: 0 })
+  const [size, setSize] = React.useState<ISize>({ width: 0, height: 0 })
   const [portsSize, setPortsSize] = React.useState<ISize>({ width: 0, height: 0 })
 
   const isDragging = React.useRef(false)
@@ -116,7 +116,7 @@ export const NodeWrapper = ({
 
   const compRef = React.useRef<HTMLElement>(null)
 
-/*  // TODO: probably should add an observer to track node component size changes
+  // TODO: probably should add an observer to track node component size changes
   React.useLayoutEffect(() => {
     const el = compRef.current as HTMLInputElement
     if (el) {
@@ -129,7 +129,7 @@ export const NodeWrapper = ({
         onNodeSizeChange({ config, nodeId: node.id, size: newSize })
       }
     }
-  }, [node, compRef.current, size.width, size.height])*/
+  }, [node, compRef.current, size.width, size.height])
 
   const children = (
     <div style={{ minWidth: portsSize.width, minHeight: portsSize.height }}>
