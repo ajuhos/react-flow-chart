@@ -69,6 +69,7 @@ export const NodeWrapper = ({
 }: INodeWrapperProps) => {
   const { zoomScale } = React.useContext(CanvasContext);
   const [, setSize] = React.useState<ISize>({ width: 0, height: 0 })
+  const [portsSize, setPortsSize] = React.useState<ISize>({ width: 0, height: 0 })
 
   const isDragging = React.useRef(false)
 
@@ -131,7 +132,7 @@ export const NodeWrapper = ({
   }, [node, compRef.current, size.width, size.height])*/
 
   const children = (
-    <>
+    <div style={{ minWidth: portsSize.width, minHeight: portsSize.height }}>
       <ResizeObserver
         onResize={(rect) => {
           const newSize = { width: rect.width, height: rect.height }
@@ -140,7 +141,7 @@ export const NodeWrapper = ({
         }}
       />
       <NodeInner node={node} config={config} />
-      <Ports node={node} config={config}>
+      <Ports node={node} config={config} onResize={setPortsSize}>
         { Object.keys(node.ports).map((portId) => (
           <PortWrapper
             config={config}
@@ -161,7 +162,7 @@ export const NodeWrapper = ({
           />
         )) }
       </Ports>
-    </>
+    </div>
   )
 
   return (
