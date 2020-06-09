@@ -32,19 +32,19 @@ export const PortsDefault = ({ children, config, onResize }: IPortsDefaultProps)
 
   return (
     <div>
-      <PortsGroupDefault config={config} side="top">
+      <PortsGroupDefault config={config} side="top" style={{ marginLeft: -top/2 }}>
         <ResizeObserver onResize={(rect) => { setTop(rect.width) }} />
         {children.filter((child) => ['input', 'top'].includes(child.props.port.type))}
       </PortsGroupDefault>
-      <PortsGroupDefault config={config} side="bottom">
+      <PortsGroupDefault config={config} side="bottom" style={{ marginLeft: -bottom/2 }}>
         <ResizeObserver onResize={(rect) => { setBottom(rect.width) }} />
         {children.filter((child) => ['output', 'bottom'].includes(child.props.port.type))}
       </PortsGroupDefault>
-      <PortsGroupDefault config={config} side="right">
+      <PortsGroupDefault config={config} side="right" style={{ marginTop: -right/2 }}>
         <ResizeObserver onResize={(rect) => { setRight(rect.height) }} />
         {children.filter((child) => ['right'].includes(child.props.port.type))}
       </PortsGroupDefault>
-      <PortsGroupDefault config={config} side="left">
+      <PortsGroupDefault config={config} side="left" style={{ marginTop: -left/2 }}>
         <ResizeObserver onResize={(rect) => { setLeft(rect.height) }} />
         {children.filter((child) => ['left'].includes(child.props.port.type))}
       </PortsGroupDefault>

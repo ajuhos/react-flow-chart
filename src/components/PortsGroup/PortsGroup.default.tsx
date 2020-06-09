@@ -14,40 +14,40 @@ export const PortsGroupDefault = styled.div<IPortsGroupDefaultProps>`
   ${(props) => {
     if (props.side === 'top') {
       return css`
-        min-width: 100%;
-        left: 0;
+        left: 50%;
         top: -12px;
         flex-direction: row;
+        align-items: center;
         > div {
           margin: 0 3px;
         }
       `
     } else if (props.side === 'bottom') {
       return css`
-        min-width: 100%;
-        left: 0;
+        left: 50%;
         bottom: -12px;
         flex-direction: row;
+        align-items: center;
         > div {
           margin: 0 3px;
         }
       `
     } else if (props.side === 'left') {
       return css`
-        min-height: 100%;
-        top: 0;
+        top: 50%;
         left: -12px;
         flex-direction: column;
+        align-items: center;
         > div {
           margin: 3px 0;
         }
       `
     } else {
       return css`
-        min-height: 100%;
-        top: 0;
+        top: 50%;
         right: -12px;
         flex-direction: column;
+        align-items: center;
         > div {
           margin: 3px 0;
         }
