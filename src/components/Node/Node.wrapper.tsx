@@ -137,7 +137,6 @@ export const NodeWrapper = ({
         onResize={(rect) => {
           const newSize = { width: rect.width, height: rect.height }
           setSize(newSize)
-          onNodeSizeChange({ config, nodeId: node.id, size: newSize })
         }}
       />
       <NodeInner node={node} config={config} />
@@ -152,6 +151,7 @@ export const NodeWrapper = ({
             hoveredLink={hoveredLink}
             hovered={hovered}
             node={node}
+            portsSize={portsSize}
             port={node.ports[portId]}
             Component={Port}
             onPortPositionChange={onPortPositionChange}
