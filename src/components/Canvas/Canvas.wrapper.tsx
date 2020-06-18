@@ -133,7 +133,7 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
                   }
                 }}
                 onDrop={(e) => {
-                  const data = JSON.parse(
+                  const { data, offset } = JSON.parse(
                     e.dataTransfer.getData(REACT_FLOW_CHART),
                   )
                   if (data) {
@@ -146,8 +146,8 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
                           config,
                           data: d,
                           position: {
-                            x: relativeClientX / scale - position.x / scale + i*(100/scale),
-                            y: relativeClientY / scale - position.y / scale
+                            x: relativeClientX / scale - offset.x - position.x / scale + i*(100/scale),
+                            y: relativeClientY / scale - offset.y - position.y / scale
                           }
                         });
                         i++
@@ -158,8 +158,8 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
                         config,
                         data,
                         position: {
-                          x: relativeClientX / scale - position.x / scale,
-                          y: relativeClientY / scale - position.y / scale
+                          x: relativeClientX / scale - offset.x - position.x / scale,
+                          y: relativeClientY / scale - offset.y - position.y / scale
                         }
                       })
                     }
