@@ -8,28 +8,20 @@ export const getDirectional = (startPos: IPosition, endPos: IPosition) => {
   const leftToRight = startPos.x < endPos.x
   const topToBottom = startPos.y < endPos.y
   const isHorizontal = width > height
-
   return { width, height,leftToRight,topToBottom,isHorizontal }
 }
 
 export const generateCurvePath = (startPos: IPosition, endPos: IPosition): string => {
-  const { width, height,leftToRight,topToBottom,isHorizontal } = getDirectional(startPos,endPos)
-
-  let start: IPosition
-  let end: IPosition
-  if (isHorizontal) {
-    start = leftToRight ? startPos : endPos
-    end = leftToRight ? endPos : startPos
-  } else {
-    start = topToBottom ? startPos : endPos
-    end = topToBottom ? endPos : startPos
-  }
-
-  const curve = isHorizontal ? width / 3 : height / 3
-  const curveX = isHorizontal ? curve : 0
-  const curveY = isHorizontal ? 0 : curve
-
-  return `M${start.x},${start.y} C ${start.x + curveX},${start.y + curveY} ${end.x - curveX},${end.y - curveY} ${end.x},${end.y}`
+  const { height,topToBottom } = getDirectional(startPos,endPos)
+  const start = topToBottom ? startPos : endPos
+  const end = topToBottom ? endPos : startPos
+  const curveX = 0;
+  const curveY = height / 1.5;
+  const delta = ((end.y-start.y) > 60 || (end.x-start.x) > 60) ? 20 : 0;
+  return "M" + start.x + "," + start.y +
+      " L " + start.x + ',' + (start.y + delta) +
+      " C " + (start.x + curveX) + "," + (start.y + curveY) + " " + (end.x - curveX) + "," + (end.y - curveY) + " " + end.x + "," + (end.y - delta) +
+      " L " + end.x + ',' + end.y
 }
 
 const finder = PF.JumpPointFinder({
