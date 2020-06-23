@@ -140,7 +140,7 @@ export const NodeWrapper = ({
         }}
       />
       <NodeInner node={node} config={config} />
-      <Ports node={node} config={config} onResize={setPortsSize}>
+      <Ports node={node} config={config} onResize={setPortsSize} scale={zoomScale}>
         { Object.keys(node.ports).map((portId) => (
           <PortWrapper
             config={config}

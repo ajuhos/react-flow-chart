@@ -8,9 +8,10 @@ export interface IPortsDefaultProps {
   node: INode
   children: Array<React.ReactElement<any>>
   onResize: (size: ISize) => void
+  scale: number
 }
 
-export const PortsDefault = ({ children, config, onResize }: IPortsDefaultProps) => {
+export const PortsDefault = ({ children, config, onResize, scale }: IPortsDefaultProps) => {
   const [ top, setTop ] = useState(0);
   const [ bottom, setBottom ] = useState(0);
   const [ right, setRight ] = useState(0);
@@ -33,19 +34,19 @@ export const PortsDefault = ({ children, config, onResize }: IPortsDefaultProps)
   return (
     <div>
       <PortsGroupDefault config={config} side="top" style={{ marginLeft: -top/2 }}>
-        <ResizeObserver onResize={(rect) => { setTop(rect.width) }} />
+        <ResizeObserver onResize={(rect) => { setTop(rect.width/scale) }} />
         {children.filter((child) => ['input', 'top'].includes(child.props.port.type))}
       </PortsGroupDefault>
       <PortsGroupDefault config={config} side="bottom" style={{ marginLeft: -bottom/2 }}>
-        <ResizeObserver onResize={(rect) => { setBottom(rect.width) }} />
+        <ResizeObserver onResize={(rect) => { setBottom(rect.width/scale) }} />
         {children.filter((child) => ['output', 'bottom'].includes(child.props.port.type))}
       </PortsGroupDefault>
       <PortsGroupDefault config={config} side="right" style={{ marginTop: -right/2 }}>
-        <ResizeObserver onResize={(rect) => { setRight(rect.height) }} />
+        <ResizeObserver onResize={(rect) => { setRight(rect.height/scale) }} />
         {children.filter((child) => ['right'].includes(child.props.port.type))}
       </PortsGroupDefault>
       <PortsGroupDefault config={config} side="left" style={{ marginTop: -left/2 }}>
-        <ResizeObserver onResize={(rect) => { setLeft(rect.height) }} />
+        <ResizeObserver onResize={(rect) => { setLeft(rect.height/scale) }} />
         {children.filter((child) => ['left'].includes(child.props.port.type))}
       </PortsGroupDefault>
     </div>
