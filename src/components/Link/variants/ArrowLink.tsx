@@ -43,11 +43,11 @@ export const ArrowLink = ({
   onLinkMouseLeave,
   onLinkClick,
 }: IArrowLinkProps) => {
-  const marker = { markerEnd: 'url(#arrowHead)' }
 
   const startColor = config.linkGradientDelta ? lightenDarkenColor(linkColor, config.linkGradientDelta) : linkColor;
   const endColor = config.linkGradientDelta ? lightenDarkenColor(linkColor, -config.linkGradientDelta) : linkColor;
   const gradientName = linkColor.slice(1);
+  const marker = { markerEnd: `url(#${gradientName})` };
 
   return (
     <svg
@@ -61,7 +61,7 @@ export const ArrowLink = ({
     >
       <defs>
         <marker
-          id="arrowHead"
+          id={`arrowHead${gradientName}`}
           orient="auto-start-reverse"
           markerWidth="2"
           markerHeight="4"
