@@ -47,7 +47,7 @@ export const ArrowLink = ({
   const startColor = config.linkGradientDelta ? lightenDarkenColor(linkColor, config.linkGradientDelta) : linkColor;
   const endColor = config.linkGradientDelta ? lightenDarkenColor(linkColor, -config.linkGradientDelta) : linkColor;
   const gradientName = linkColor.slice(1);
-  const marker = { markerEnd: `url(#${gradientName})` };
+  const marker = { markerEnd: `url(#arrowHead${gradientName})` };
 
   return (
     <svg
