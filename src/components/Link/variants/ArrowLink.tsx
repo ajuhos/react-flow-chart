@@ -70,13 +70,13 @@ export const ArrowLink = ({
         >
           <path d="M0,0 V4 L2,2 Z" fill={endColor} />
         </marker>
-        <linearGradient id={`gradient${gradientName}A`} x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id={`gradient${gradientName}A`} x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor={startColor} />
           <stop offset="10%" stopColor={startColor} />
           <stop offset="90%" stopColor={endColor} />
           <stop offset="100%" stopColor={endColor} />
         </linearGradient>
-        <linearGradient id={`gradient${gradientName}B`} x1="100%" y1="100%" x2="0%" y2="0%">
+        <linearGradient id={`gradient${gradientName}B`} x1="0%" y1="100%" x2="0%" y2="0%">
           <stop offset="0%" stopColor={startColor} />
           <stop offset="10%" stopColor={startColor} />
           <stop offset="90%" stopColor={endColor} />
