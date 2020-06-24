@@ -109,7 +109,7 @@ export const FlowChart = (props: IFlowChartProps) => {
   const nodeCallbacks = { onDragNode, onNodeClick, onDragNodeStop, onNodeMouseEnter, onNodeMouseLeave, onNodeSizeChange,onNodeDoubleClick }
   const portCallbacks = { onPortPositionChange, onLinkStart, onLinkMove, onLinkComplete, onLinkCancel }
 
-  const nodesInView = Object.keys(nodes).filter((nodeId) => {
+  const nodesInView = config.renderInViewOnly ? Object.keys(nodes).filter((nodeId) => {
     const defaultNodeSize = { width: 500, height: 500 }
 
     const { x, y } = nodes[nodeId].position
@@ -120,11 +120,11 @@ export const FlowChart = (props: IFlowChartProps) => {
     const isTooFarUp = scale * y + offset.y + scale * size.height < 0
     const isTooFarDown = scale * y + offset.y > canvasSize.height
     return !(isTooFarLeft || isTooFarRight || isTooFarUp || isTooFarDown)
-  })
+  }) : Object.keys(nodes);
 
   const matrix = config.smartRouting ? getMatrix(chart.offset, Object.values(nodesInView.map((nodeId) => nodes[nodeId]))) : undefined
 
-  const linksInView = Object.keys(links).filter((linkId) => {
+  const linksInView = config.renderInViewOnly ? Object.keys(links).filter((linkId) => {
     const from = links[linkId].from
     const to = links[linkId].to
 
@@ -133,7 +133,7 @@ export const FlowChart = (props: IFlowChartProps) => {
       nodesInView.indexOf(from.nodeId) !== -1 ||
       nodesInView.indexOf(to.nodeId) !== -1
     )
-  })
+  }) : Object.keys(links);
 
   return (
     <CanvasWrapper

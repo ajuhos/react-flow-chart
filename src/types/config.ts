@@ -6,9 +6,11 @@ export interface IConfig {
   snapToGrid?: boolean
   smartRouting?: boolean
   showArrowHead?: boolean
+  renderInViewOnly?: boolean
   gridSize?: number
   validateLink?: (props: IOnLinkCompleteInput & { chart: IChart }) => boolean
   nodeProps?: any
+  linkGradientDelta?: number
   zoom?: IZoomConfig
   [key: string]: any
 }
